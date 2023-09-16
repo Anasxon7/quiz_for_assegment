@@ -161,7 +161,7 @@ body.wrong-answer .container {
   .container {
     max-width: 450px;
     margin: 0 auto;
-    padding: 0px;
+    padding: 10px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
