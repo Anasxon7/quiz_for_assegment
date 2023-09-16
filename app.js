@@ -8,6 +8,7 @@ const resultElement = document.getElementById("result");
 const playAgainButton = document.getElementById("playAgainBtn");
 const optionButtons = document.querySelectorAll('input[name="capitalOption"]');
 const timercha = document.querySelector(".timer");
+const question_title = document.querySelector('.question_title');
 const music = new Audio('/Images/music.mp3');
 let currentQuestionIndex = 0;
 let score = 0;
@@ -55,6 +56,8 @@ function renderOptions(capitals) {
     radio.type = "radio";
     radio.name = "capitalOption";
     radio.value = capital;
+    radio.style.cursor = "pointer"
+    radio.style.accentColor = "#e74c3c"
     optionsContainer.appendChild(radio);
 
     const label = document.createElement("label");
@@ -71,6 +74,7 @@ async function displayQuestion() {
   clearInterval(timer);
   startTimer();
   music.play();
+  question_title.innerHTML = "Find the Capital";
 
   const countryData = await fetchRandomCountry();
   correctCapital = countryData.capital[0];
@@ -96,8 +100,9 @@ async function displayQuestion() {
 }
 
 function calculateResults() {
-  DontViewElements();
   music.pause();
+  DontViewElements();
+  question_title.innerHTML = "Your Results!";
   resultElement.textContent = `Your score: ${score}`;
   resultElement.textContent += ` | Correct answers: ${correctAnswers}`;
   resultElement.textContent += ` | Wrong answers: ${wrongAnswers}`;
