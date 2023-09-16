@@ -161,7 +161,7 @@ body.wrong-answer .container {
   .container {
     max-width: 450px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -177,7 +177,7 @@ body.wrong-answer .container {
     height: 50px;
   }
   .options .option {
-    padding: 30px;
+    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
