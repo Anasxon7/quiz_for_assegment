@@ -153,3 +153,33 @@ body.wrong-answer .container {
   margin: 20px auto;
   font-size: 18px;
 }
+
+
+/* Breakpoints */
+@media screen and (max-width: 700px) {
+
+  .container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 0px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: none;
+    backdrop-filter: blur(20px);
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  .question {
+    font-size: 14px;
+    margin-bottom: 20px;
+    width: 400px;
+    height: 50px;
+  }
+  .options .option {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+}
