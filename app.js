@@ -1,3 +1,4 @@
+// Bu JavaScript kodlari quiz o'yini funktsiyalarni o'z ichiga oladi va o'yin oynayotganini boshlaydi.
 const startButton = document.getElementById("startBtn");
 const quizContainer = document.getElementById("quizContainer");
 const questionContainer = document.getElementById("questionContainer");
@@ -9,7 +10,7 @@ const playAgainButton = document.getElementById("playAgainBtn");
 const optionButtons = document.querySelectorAll('input[name="capitalOption"]');
 const timercha = document.querySelector(".timer");
 const question_title = document.querySelector('.question_title');
-const music = new Audio('/Images/music.mp3');
+const music = new Audio('/assets/music.mp3');
 let currentQuestionIndex = 0;
 let score = 0;
 let correctCapital = "";
@@ -17,16 +18,23 @@ let timer;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 
+// startButton bosilganda o'yin boshlanadi
 startButton.addEventListener("click", startQuiz);
+
+// nextButton bosilganda keyingi savol ko'rsatiladi
 nextButton.addEventListener("click", displayNextQuestion);
+
+// playAgainButton bosilganda o'yin qayta boshlanadi
 playAgainButton.addEventListener("click", restartGame);
 
+// startQuiz funktsiyasi o'yinni boshlaydi
 function startQuiz() {
   quizContainer.style.display = "none";
   questionContainer.style.display = "block";
   displayQuestion();
 }
 
+// startQuiz funktsiyasi o'yinni boshlaydi
 async function fetchRandomCountry() {
   const response = await fetch("https://restcountries.com/v3.1/all");
   const countries = await response.json();
@@ -34,6 +42,7 @@ async function fetchRandomCountry() {
   return countries[randomIndex];
 }
 
+// startTimer funktsiyasi vaqt chiziqini boshlaydi
 function startTimer() {
   let timeLeft = 15;
   timer = setInterval(function () {
@@ -46,10 +55,12 @@ function startTimer() {
   }, 1000);
 }
 
+// tanlangan javoblar sahifasini tozalash uchun clearOptions funktsiyasi
 function clearOptions() {
   optionsContainer.innerHTML = "";
 }
 
+// variantlar ro'yxatini chiqarish uchun renderOptions funktsiyasi
 function renderOptions(capitals) {
   capitals.forEach(capital => {
     const radio = document.createElement("input");
@@ -66,10 +77,12 @@ function renderOptions(capitals) {
   });
 }
 
+// Keyingi savolni ko'rsatish uchun nextButton ni yoqish
 function enableNextButton() {
   nextButton.disabled = false;
 }
 
+// Savolni chiqarish va tanlangan variantlarni tayyorlash uchun displayQuestion funktsiyasi
 async function displayQuestion() {
   clearInterval(timer);
   startTimer();
@@ -99,6 +112,7 @@ async function displayQuestion() {
   resultElement.textContent = "";
 }
 
+// Natijalarni hisoblash uchun calculateResults funktsiyasi
 function calculateResults() {
   music.pause();
   DontViewElements();
@@ -119,6 +133,7 @@ function calculateResults() {
   playAgainButton.classList.remove("hidden");
 }
 
+// Keyingi savolni ko'rsatish uchun displayNextQuestion funktsiyasi
 function displayNextQuestion() {
     clearInterval(timer);
   
@@ -149,7 +164,7 @@ function displayNextQuestion() {
     }, 1000);
   }
   
-
+// O'yinni boshidan boshlash
 function restartGame() {
   currentQuestionIndex = 0;
   score = 0;
@@ -159,19 +174,22 @@ function restartGame() {
   ViewElements();
   displayQuestion();
 }
-
+// O'yin elementlarini o'zgartirish
 optionsContainer.addEventListener("change", enableNextButton);
 
-// Initially show the quiz container
+// O'yin boshlanganida o'yin konteynerini ko'rsatish
 quizContainer.style.display = "block";
 questionContainer.style.display = "none";
 
+// O'yin elementlarini ko'rsatish va ko'rsatmaslik uchun funksiya
 function ViewElements(){
   nextButton.style.display = "flex";
   optionsContainer.style.display = "grid";
   questionElement.style.display = "block";
   timercha.style.display = "block";
 }
+
+// O'yin elementlarini ko'rsatmaslik uchun funksiyalar
 function DontViewElements(){
   nextButton.style.display = "none";
   optionsContainer.style.display = "none";

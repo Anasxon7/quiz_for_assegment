@@ -7,29 +7,32 @@
     <title>Quiz Game</title>
   </head>
   <body>
-    <div class="quiz-container" id="quizContainer">
-      <h2>Welcome to the Quiz Game</h2>
-      <p>
-        <strong>Here you can try yourself!</strong> <br>
-        In our game, you will be given the name of the state, and you must find the correct capital from the given options. <br>
-        <strong>Rules</strong>: The quiz consists of 10 questions and each question is given 15 seconds if you do not select an option within this time.
-        you lose points if you get all the answers right you will become one of our successful players!
-      </p>
-      <button id="startBtn">Get Started</button>
-    </div>
+<!-- Quiz container -->
+<div class="quiz-container" id="quizContainer">
+  <h2>Welcome to the Quiz Game</h2>
+  <p>
+    <strong>Here you can try yourself!</strong> <br>
+    In our game, you will be given the name of the state, and you must find the correct capital from the given options. <br>
+    <strong>Rules</strong>: The quiz consists of 10 questions and each question is given 15 seconds if you do not select an option within this time.
+    you lose points if you get all the answers right you will become one of our successful players!
+  </p>
+  <button id="startBtn">Get Started</button>
+</div>
 
-    <div class="container" id="questionContainer">
-      <h1 class="question_title"></h1>
-      <div class="question" id="question">Country: Loading...</div>
-      <div class="options" id="options"></div>
-      <button id="nextBtn" disabled>Next</button>
-      <div id="result" class="hidden"></div>
-      <button id="playAgainBtn" class="hidden">Play Again</button>
-      <p
-        class="timer"
-        style="height: 50px; width: 100%; text-align: center"
-      ></p>
-    </div>
+<!-- Question container -->
+<div class="container" id="questionContainer">
+  <h1 class="question_title"></h1>
+  <div class="question" id="question">Country: Loading...</div>
+  <div class="options" id="options"></div>
+  <button id="nextBtn" disabled>Next</button>
+  <div id="result" class="hidden"></div>
+  <button id="playAgainBtn" class="hidden">Play Again</button>
+  <p
+    class="timer"
+    style="height: 50px; width: 100%; text-align: center"
+  ></p>
+</div>
+
 
     <script src="app.js"></script>
   </body>
